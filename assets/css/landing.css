@@ -1007,6 +1007,7 @@ p { margin: 0 0 1em; }
 
 /* Global touch + tap behavior */
 html { -webkit-text-size-adjust: 100%; }
+html, body { max-width: 100%; overflow-x: hidden; }
 body {
   -webkit-tap-highlight-color: transparent;
 }
@@ -1037,8 +1038,8 @@ a, button, summary, .fe-btn, .fe-service, .fe-faq__q {
   /* Hide the redundant topbar — header carries the same phone CTA */
   .fe-topbar { display: none; }
 
-  /* Tighter container gutters */
-  .fe-container { padding: 0 16px; }
+  /* Mobile gutters — keep consistent breathing room from screen edges */
+  .fe-container { padding-left: 20px; padding-right: 20px; }
 
   /* Header */
   .fe-header__inner { padding: 10px 0; gap: 10px; }
@@ -1116,9 +1117,12 @@ a, button, summary, .fe-btn, .fe-service, .fe-faq__q {
   .fe-form label { font-size: 11px; margin-bottom: 5px; }
   .fe-form__row { gap: 10px; }
 
-  /* Mobile bar — bigger tap area */
-  .fe-mobile-bar { padding: 6px 6px max(6px, env(safe-area-inset-bottom)); gap: 6px; }
-  .fe-mobile-bar a { padding: 12px 4px; font-size: 12px; min-height: 52px; }
+  /* Mobile bar — bigger tap area, side breathing room */
+  .fe-mobile-bar {
+    padding: 8px 12px max(10px, env(safe-area-inset-bottom));
+    gap: 8px;
+  }
+  .fe-mobile-bar a { padding: 12px 6px; font-size: 12px; min-height: 52px; }
   .fe-mobile-bar a svg { width: 20px; height: 20px; }
   body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
 
@@ -1134,10 +1138,12 @@ a, button, summary, .fe-btn, .fe-service, .fe-faq__q {
 
 /* Very small phones */
 @media (max-width: 380px) {
+  .fe-container { padding-left: 16px; padding-right: 16px; }
   .fe-hero h1 { font-size: 30px; }
   .fe-hero__sub { font-size: 15px; }
   .fe-trust__num { font-size: 24px; }
-  .fe-mobile-bar a { font-size: 11px; }
+  .fe-mobile-bar { padding-left: 8px; padding-right: 8px; gap: 6px; }
+  .fe-mobile-bar a { font-size: 11px; padding: 12px 4px; }
   .fe-header__cta .fe-btn span[data-token="phone"] { display: none; }
 }
 
