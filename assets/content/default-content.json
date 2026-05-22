@@ -1,0 +1,47 @@
+{
+  "globals": {
+    "brand": "Freedom Electric & Lighting",
+    "tagline": "The People's Electrician",
+    "phone": "(719) 437-7802",
+    "phone_raw": "+17194377802",
+    "sms_raw": "+17194377802",
+    "email": "freedom.electric2023@gmail.com",
+    "license": "ME.3000991",
+    "address_city": "Colorado Springs, CO",
+    "service_areas": "Colorado Springs · Fountain · Manitou Springs · Monument · Peyton · El Paso County · Front Range",
+    "website": "freedomelectriclighting.com",
+    "jobs_completed": "500+",
+    "rating": "4.9",
+    "logo_light": "https://freedomelectriclighting.com/wp-content/uploads/2026/03/Freedom_Electric_Logo_Header_Thin.png",
+    "logo_dark": "https://freedomelectriclighting.com/wp-content/uploads/2026/04/Freedom_Electric_Logo_Web_DarkBG_Shrunk.png"
+  },
+  "pages": {
+    "residential": {
+      "meta_title": "Colorado Springs Residential Electrician | Freedom Electric & Lighting",
+      "meta_description": "Licensed Master Electrician (ME.3000991). Same-day estimates, flat-rate pricing, 500+ local jobs completed. Call Joe at (719) 437-7802.",
+      "hero_eyebrow": "Colorado Springs Residential Electrician",
+      "hero_h1": "Trusted Master Electrician for Your Colorado Springs Home",
+      "hero_sub": "From flickering outlets and overloaded panels to EV chargers, hot tubs, and full remodels — Joe and the Freedom Electric team protect your home, your family, and your wallet. Same-day estimates. Flat-rate quotes. No surprises.",
+      "hero_card_h": "Get a Free Estimate Today",
+      "hero_card_sub": "Same-day response. No pressure. No surprise pricing."
+    },
+    "panel-upgrade": {
+      "meta_title": "Electrical Panel Upgrade Colorado Springs | Freedom Electric & Lighting",
+      "meta_description": "Upgrade your electrical panel safely. Licensed Master Electrician, code-compliant work, flat-rate quotes. Free estimate from a Colorado Springs local — (719) 437-7802.",
+      "hero_eyebrow": "Colorado Springs Panel Upgrade Specialist",
+      "hero_h1": "Upgrade Your Electrical Panel Before Your Home Outgrows It",
+      "hero_sub": "If your panel is older than your kids, your breakers keep tripping, or you're adding an EV charger, hot tub, or remodel — your home is asking for more power than it was built for. Free estimate. Locked flat-rate quote. Code-compliant work from a licensed Master Electrician.",
+      "hero_card_h": "Free Panel Evaluation",
+      "hero_card_sub": "We come out, look at it, and give you an honest flat-rate quote."
+    },
+    "commercial": {
+      "meta_title": "Commercial Electrician Colorado Springs | Freedom Electric & Lighting",
+      "meta_description": "Commercial electrical contractor in Colorado Springs. Lighting, parking lots, buildouts, troubleshooting, code upgrades. Licensed, insured, on time. (719) 437-7802.",
+      "hero_eyebrow": "Colorado Springs Commercial Electrician",
+      "hero_h1": "Commercial Electrical Work That Keeps Your Doors Open",
+      "hero_sub": "Lights, power, parking lots, retail buildouts, tenant improvements, code upgrades. A licensed Master Electrician you can actually reach — on time, on budget, code-compliant. We work around your schedule so your business never stops.",
+      "hero_card_h": "Request a Commercial Estimate",
+      "hero_card_sub": "Tell us the scope. We respond same business day with a clear plan."
+    }
+  }
+}

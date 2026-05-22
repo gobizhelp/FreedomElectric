@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <title>Brand Board · Freedom Electric &amp; Lighting</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Brand standards for Freedom Electric & Lighting — colors, typography, voice, and applications." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/landing.css" />
+  <style>
+    /* Brand board — local layout */
+    .bb-hero {
+      background:
+        radial-gradient(900px 480px at 110% -10%, rgba(43, 48, 99, 0.85), transparent 60%),
+        radial-gradient(700px 420px at -10% 110%, rgba(151, 33, 45, 0.55), transparent 60%),
+        linear-gradient(180deg, #0a0a0a 0%, #181818 100%);
+      color: #fff;
+      padding: 80px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bb-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(90deg, transparent 0 60px, rgba(255, 255, 255, 0.02) 60px 61px);
+      pointer-events: none;
+    }
+    .bb-hero__grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 900px) { .bb-hero__grid { grid-template-columns: 1fr; } }
+    .bb-hero h1 { color: #fff; margin-bottom: 12px; }
+    .bb-hero p.lede { font-size: 19px; color: #d8d6d8; max-width: 580px; }
+    .bb-hero__meta {
+      list-style: none; padding: 0; margin: 24px 0 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .bb-hero__meta li {
+      border-left: 3px solid var(--fe-yellow);
+      padding: 4px 0 4px 12px;
+    }
+    .bb-hero__meta strong { display: block; font-family: var(--fe-display); font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fe-yellow); }
+    .bb-hero__meta span { font-size: 14px; color: #e8e7e8; }
+
+    .bb-mark {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #1a1c1f 0%, #2b2a2a 100%);
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .bb-mark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, transparent 0 30%, rgba(212, 45, 62, 0.07) 30% 40%, transparent 40% 50%, rgba(212, 45, 62, 0.07) 50% 60%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .bb-section { padding: 72px 0; }
+    .bb-section--alt { background: var(--fe-bg-soft); }
+    .bb-section--dark { background: var(--fe-near-black); color: #fff; }
+    .bb-section--dark h2, .bb-section--dark h3, .bb-section--dark h4 { color: #fff; }
+
+    .bb-head { margin-bottom: 36px; max-width: 760px; }
+    .bb-head h2 { margin-bottom: 10px; }
+    .bb-head p { color: var(--fe-steel); margin: 0; }
+    .bb-section--dark .bb-head p { color: #d8d6d8; }
+    .bb-head .fe-flag-line { margin: 0 0 14px; }
+
+    /* Colors */
+    .bb-palette {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .bb-swatch {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--fe-border);
+      background: #fff;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .bb-swatch:hover { transform: translateY(-2px); box-shadow: var(--fe-shadow); }
+    .bb-swatch__chip { height: 130px; position: relative; }
+    .bb-swatch__chip::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.08);
+    }
+    .bb-swatch__body { padding: 14px 16px; }
+    .bb-swatch__name { font-family: var(--fe-display); font-size: 15px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 4px; color: var(--fe-black); }
+    .bb-swatch__code {
+      font-family: "SF Mono", "Menlo", "Consolas", monospace;
+      font-size: 12px;
+      color: var(--fe-steel);
+      display: flex; justify-content: space-between; gap: 8px;
+    }
+    .bb-swatch__use { font-size: 12px; color: var(--fe-steel); margin: 8px 0 0; line-height: 1.4; }
+    .bb-swatch__chip--border { border: 1px solid var(--fe-border); }
+
+    /* Type */
+    .bb-type-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--fe-border);
+      align-items: baseline;
+    }
+    .bb-type-row:last-child { border-bottom: 0; }
+    .bb-type-row__meta { font-family: "SF Mono", "Menlo", "Consolas", monospace; font-size: 12px; color: var(--fe-steel); }
+    .bb-type-row__meta strong { display: block; font-family: var(--fe-display); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fe-black); margin-bottom: 6px; }
+    .bb-type-row__sample { color: var(--fe-black); }
+    .bb-type-row__sample.is-display { font-family: var(--fe-display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }
+    .bb-type-row__sample.is-body { font-family: var(--fe-body); }
+
+    .bb-fonts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    @media (max-width: 700px) { .bb-fonts-grid { grid-template-columns: 1fr; } }
+    .bb-font-card {
+      background: #fff;
+      border: 1px solid var(--fe-border);
+      border-radius: 14px;
+      padding: 28px;
+      position: relative;
+    }
+    .bb-font-card__name { font-family: var(--fe-display); font-size: 32px; margin: 0 0 6px; letter-spacing: 0.02em; }
+    .bb-font-card__role { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fe-red); font-weight: 700; margin-bottom: 18px; }
+    .bb-font-card__sample { font-size: 64px; font-family: inherit; line-height: 1; margin: 16px 0; color: var(--fe-black); }
+    .bb-font-card__sample--inter { font-family: var(--fe-body); font-weight: 700; }
+    .bb-font-card__sample--oswald { font-family: var(--fe-display); font-weight: 700; }
+    .bb-font-card__weights { font-size: 13px; color: var(--fe-steel); display: flex; gap: 10px; flex-wrap: wrap; }
+    .bb-font-card__weights span { padding: 4px 8px; background: var(--fe-bg-soft); border-radius: 4px; }
+
+    /* Voice */
+    .bb-voice {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 800px) { .bb-voice { grid-template-columns: 1fr; } }
+    .bb-voice-card {
+      border-radius: 14px;
+      padding: 28px;
+      background: #fff;
+      border: 1px solid var(--fe-border);
+    }
+    .bb-voice-card h3 { font-size: 18px; margin: 0 0 14px; }
+    .bb-voice-card--do { border-top: 6px solid #1f9d55; }
+    .bb-voice-card--dont { border-top: 6px solid var(--fe-red); }
+    .bb-voice-card ul { padding: 0; margin: 0; list-style: none; }
+    .bb-voice-card li {
+      padding: 10px 0 10px 28px;
+      position: relative;
+      color: var(--fe-near-black);
+      border-bottom: 1px solid var(--fe-border);
+    }
+    .bb-voice-card li:last-child { border-bottom: 0; }
+    .bb-voice-card--do li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 14px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: #1f9d55;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19l12-12-1.41-1.41z'/%3E%3C/svg%3E");
+      background-size: 14px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .bb-voice-card--dont li::before {
+      content: "×";
+      position: absolute;
+      left: 0; top: 8px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--fe-red);
+      color: #fff;
+      text-align: center;
+      line-height: 18px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* Phrase chips */
+    .bb-phrases {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .bb-phrase {
+      display: inline-block;
+      padding: 8px 14px;
+      background: var(--fe-black);
+      color: var(--fe-yellow);
+      font-family: var(--fe-display);
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      border: 1px solid rgba(253, 254, 6, 0.4);
+    }
+    .bb-phrase--red { background: var(--fe-red); color: #fff; border-color: rgba(255, 255, 255, 0.15); }
+    .bb-phrase--white { background: #fff; color: var(--fe-black); border: 1px solid var(--fe-border); }
+
+    /* Components row */
+    .bb-comps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+    .bb-comp {
+      background: #fff;
+      border: 1px solid var(--fe-border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .bb-comp h4 {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fe-steel);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+    .bb-comp__stack { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+    .bb-comp__row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .bb-comp--dark { background: var(--fe-black); color: #fff; border-color: rgba(255, 255, 255, 0.1); }
+    .bb-comp--dark h4 { color: #d8d6d8; }
+
+    /* Logo lockups */
+    .bb-lockups {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    @media (max-width: 800px) { .bb-lockups { grid-template-columns: 1fr; } }
+    .bb-lockup {
+      border-radius: 14px;
+      padding: 48px 32px;
+      display: grid;
+      place-items: center;
+      min-height: 200px;
+      position: relative;
+    }
+    .bb-lockup--dark { background: var(--fe-black); }
+    .bb-lockup--light { background: #fff; border: 1px solid var(--fe-border); }
+    .bb-lockup--red { background: var(--fe-red); }
+    .bb-lockup--navy { background: var(--fe-navy); }
+    .bb-lockup__label {
+      position: absolute;
+      top: 14px; left: 16px;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      opacity: 0.6;
+    }
+    .bb-lockup--dark .bb-lockup__label,
+    .bb-lockup--red .bb-lockup__label,
+    .bb-lockup--navy .bb-lockup__label { color: #fff; }
+    .bb-lockup--light .bb-lockup__label { color: var(--fe-steel); }
+
+    .bb-wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+    }
+    .bb-wordmark__mark {
+      width: 64px; height: 64px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--fe-red), var(--fe-red-dark));
+      color: var(--fe-yellow);
+      display: grid; place-items: center;
+      font-family: var(--fe-display);
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      border: 3px solid var(--fe-yellow);
+    }
+    .bb-wordmark__type { line-height: 1.05; }
+    .bb-wordmark__brand {
+      font-family: var(--fe-display);
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .bb-wordmark__sub {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .bb-lockup--dark .bb-wordmark__brand,
+    .bb-lockup--red .bb-wordmark__brand,
+    .bb-lockup--navy .bb-wordmark__brand { color: #fff; }
+    .bb-lockup--dark .bb-wordmark__sub,
+    .bb-lockup--red .bb-wordmark__sub,
+    .bb-lockup--navy .bb-wordmark__sub { color: var(--fe-yellow); }
+    .bb-lockup--light .bb-wordmark__brand { color: var(--fe-black); }
+    .bb-lockup--light .bb-wordmark__sub { color: var(--fe-red); }
+    .bb-lockup--red .bb-wordmark__mark { background: #fff; color: var(--fe-red); border-color: var(--fe-yellow); }
+    .bb-lockup--navy .bb-wordmark__mark { background: var(--fe-yellow); color: var(--fe-navy); border-color: #fff; }
+
+    /* Patterns */
+    .bb-patterns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .bb-pattern {
+      border-radius: 12px;
+      height: 140px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--fe-border);
+    }
+    .bb-pattern__label {
+      position: absolute;
+      bottom: 10px; left: 12px;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .bb-pattern--stripe {
+      background: linear-gradient(90deg,
+        var(--fe-red) 0%, var(--fe-red) 25%,
+        var(--fe-white) 25%, var(--fe-white) 50%,
+        var(--fe-red) 50%, var(--fe-red) 75%,
+        var(--fe-navy) 75%, var(--fe-navy) 100%);
+    }
+    .bb-pattern--hero {
+      background:
+        radial-gradient(300px 200px at 90% 10%, rgba(43, 48, 99, 0.9), transparent 60%),
+        radial-gradient(280px 200px at 10% 90%, rgba(151, 33, 45, 0.6), transparent 60%),
+        linear-gradient(180deg, #0a0a0a 0%, #181818 100%);
+    }
+    .bb-pattern--flag-line {
+      background: #fff;
+      display: grid; place-items: center;
+    }
+    .bb-pattern--scan {
+      background:
+        repeating-linear-gradient(0deg, var(--fe-black) 0 4px, var(--fe-near-black) 4px 5px);
+    }
+    .bb-pattern--yellow {
+      background: var(--fe-yellow);
+    }
+    .bb-pattern--yellow::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(135deg, transparent 0 12px, rgba(0,0,0,0.06) 12px 13px);
+    }
+    .bb-pattern--yellow .bb-pattern__label { background: var(--fe-black); color: var(--fe-yellow); }
+
+    /* Application example */
+    .bb-app {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 800px) { .bb-app { grid-template-columns: 1fr; } }
+    .bb-card-demo {
+      background:
+        linear-gradient(135deg, rgba(0, 0, 0, 0.92) 0%, rgba(43, 48, 99, 0.92) 100%),
+        var(--fe-black);
+      color: #fff;
+      border-radius: 14px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bb-card-demo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(0deg, transparent 0 28px, rgba(212, 45, 62, 0.05) 28px 29px);
+    }
+    .bb-card-demo > * { position: relative; }
+    .bb-card-demo h3 { color: #fff; font-size: 26px; margin: 8px 0 12px; }
+    .bb-card-demo p { color: #d8d6d8; font-size: 15px; margin-bottom: 18px; }
+
+    .bb-imagery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .bb-imagery__tile {
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      display: grid;
+      place-items: end start;
+      padding: 14px;
+    }
+    .bb-imagery__tile span {
+      background: rgba(0,0,0,0.6);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .bb-img-1 { background:
+      linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.5) 100%),
+      radial-gradient(circle at 30% 40%, rgba(253, 254, 6, 0.35) 0%, transparent 50%),
+      linear-gradient(135deg, #2b2a2a 0%, #1a1c1f 100%);
+    }
+    .bb-img-2 { background:
+      linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.5) 100%),
+      linear-gradient(135deg, var(--fe-navy) 0%, var(--fe-black) 100%);
+    }
+    .bb-img-3 { background:
+      linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.5) 100%),
+      linear-gradient(135deg, var(--fe-red-dark) 0%, var(--fe-black) 100%);
+    }
+    .bb-img-4 { background:
+      linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.5) 100%),
+      linear-gradient(135deg, #5a5658 0%, #2b2a2a 100%);
+    }
+
+    /* Proof grid */
+    .bb-proof {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+    .bb-proof__item {
+      background: #fff;
+      border: 1px solid var(--fe-border);
+      border-left: 4px solid var(--fe-red);
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+    .bb-proof__item:nth-child(2n) { border-left-color: var(--fe-yellow); }
+    .bb-proof__item:nth-child(3n) { border-left-color: var(--fe-navy); }
+    .bb-proof__label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--fe-steel);
+      margin: 0 0 4px;
+    }
+    .bb-proof__value {
+      font-family: var(--fe-display);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--fe-black);
+      margin: 0;
+    }
+
+    /* Spacing demo */
+    .bb-space {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .bb-space__item {
+      background: #fff;
+      border: 1px solid var(--fe-border);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .bb-space__bar {
+      background: var(--fe-red);
+      height: 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .bb-space__name { font-family: var(--fe-display); letter-spacing: 0.06em; font-size: 14px; }
+    .bb-space__val { font-family: "SF Mono", monospace; font-size: 12px; color: var(--fe-steel); margin-top: 2px; }
+
+    /* Print */
+    @media print {
+      .bb-section { padding: 28px 0; }
+      .bb-hero { padding: 40px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="bb-hero">
+    <div class="fe-container">
+      <div class="bb-hero__grid">
+        <div>
+          <span class="fe-eyebrow">Brand Standards · v1.0</span>
+          <h1>Freedom Electric<br/>&amp; Lighting</h1>
+          <p class="lede">The People's Electrician. A patriotic, blue-collar, professional brand built around trust, transparency, and code-compliant work in Colorado Springs and the Front Range.</p>
+          <ul class="bb-hero__meta">
+            <li><strong>Founder</strong><span>Joe Wolff · Master Electrician</span></li>
+            <li><strong>License</strong><span>ME.3000991</span></li>
+            <li><strong>Founded</strong><span>2023 · Colorado Springs, CO</span></li>
+            <li><strong>Positioning</strong><span>Done right the first time.</span></li>
+          </ul>
+        </div>
+        <div class="bb-mark">
+          <img src="https://freedomelectriclighting.com/wp-content/uploads/2026/04/Freedom_Electric_Logo_Web_DarkBG_Shrunk.png"
+               alt="Freedom Electric &amp; Lighting"
+               style="max-width: 78%; height: auto; display: block;"
+               data-src-token="logo_dark" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="fe-stripe" aria-hidden="true"></div>
+
+  <!-- BRAND ESSENCE -->
+  <section class="bb-section">
+    <div class="fe-container">
+      <div class="bb-head">
+        <span class="fe-flag-line"></span>
+        <span class="fe-eyebrow fe-eyebrow--light">01 · Brand Essence</span>
+        <h2>Who Freedom Electric is</h2>
+        <p>One licensed Master Electrician treating every job in Colorado Springs like it's his own home. The brand stands for <em>local, ethical, economical, and professional</em> — in that order — and the design system reflects that grounded, no-bullshit promise.</p>
+      </div>
+
+      <div class="bb-app">
+        <div class="bb-comp">
+          <h4>Brand Name</h4>
+          <p style="font-family: var(--fe-display); font-size: 28px; line-height: 1.1; margin: 0 0 6px; text-transform: uppercase;">Freedom Electric &amp; Lighting</p>
+          <p style="font-size: 13px; color: var(--fe-steel); margin: 0;">Always use the ampersand (&amp;), never "and." Legal entity: Freedom Electric &amp; Lighting LLC.</p>
+
+          <h4 style="margin-top: 28px;">Tagline</h4>
+          <p style="font-family: var(--fe-display); font-size: 22px; margin: 0; text-transform: uppercase;">The People's Electrician</p>
+
+          <h4 style="margin-top: 28px;">Positioning Statement</h4>
+          <p style="font-style: italic; color: var(--fe-near-black); margin: 0; line-height: 1.5;">"Colorado Springs' Electrician for Homeowners and Contractors Who Want It Done Right."</p>
+        </div>
+
+        <div class="bb-comp bb-comp--dark">
+          <h4>Brand Promise</h4>
+          <p style="font-family: var(--fe-display); font-size: 22px; line-height: 1.25; margin: 0 0 8px; text-transform: uppercase; color: #fff;">Local. Ethical.<br/>Economical. Professional.</p>
+          <p style="color: #d8d6d8; font-size: 14px; margin: 14px 0 0;">A licensed Master Electrician who picks up the phone, shows up on time, quotes a fair flat-rate price up front, and stands by the work. No call centers. No surprises. No shortcuts.</p>
+          <div class="bb-phrases" style="margin-top: 22px;">
+            <span class="bb-phrase">Same-day estimates</span>
+            <span class="bb-phrase bb-phrase--red">Flat-rate quotes</span>
+            <span class="bb-phrase">Code-compliant</span>
+            <span class="bb-phrase bb-phrase--red">Fully insured</span>
+            <span class="bb-phrase">500+ local jobs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO -->
+  <section class="bb-section bb-section--alt">
+    <div class="fe-container">
+      <div class="bb-head">
+        <span class="fe-flag-line"></span>
+        <span class="fe-eyebrow fe-eyebrow--light">02 · Logo &amp; Lockups</span>
+        <h2>Wordmark + emblem</h2>
+        <p>The primary lockup pairs a bold <strong>FE</strong> emblem with the Oswald wordmark and Inter tagline. The emblem uses the Flag Red gradient with a Freedom Yellow border — the same color story as the broader system.</p>
+      </div>
+
+      <div class="bb-lockups">
+        <div class="bb-lockup bb-lockup--dark">
+          <span class="bb-lockup__label">Primary · Dark BG</span>
+          <img src="https://freedomelectriclighting.com/wp-content/uploads/2026/04/Freedom_Electric_Logo_Web_DarkBG_Shrunk.png"
+               alt="Freedom Electric &amp; Lighting · dark background variant"
+               style="max-width: 75%; height: auto;" />
+        </div>
+        <div class="bb-lockup bb-lockup--light">
+          <span class="bb-lockup__label">Primary · Light BG</span>
+          <img src="https://freedomelectriclighting.com/wp-content/uploads/2026/03/Freedom_Electric_Logo_Header_Thin.png"
+               alt="Freedom Electric &amp; Lighting · light background variant"
+               style="max-width: 75%; height: auto;" />
+        </div>
+        <div class="bb-lockup bb-lockup--red">
+          <span class="bb-lockup__label">Accent · Red BG</span>
+          <img src="https://freedomelectriclighting.com/wp-content/uploads/2026/04/Freedom_Electric_Logo_Web_DarkBG_Shrunk.png"
+               alt="Freedom Electric &amp; Lighting · red background"
+               style="max-width: 75%; height: auto;" />
+        </div>
+        <div class="bb-lockup bb-lockup--navy">
+          <span class="bb-lockup__label">Accent · Navy BG</span>
+          <img src="https://freedomelectriclighting.com/wp-content/uploads/2026/04/Freedom_Electric_Logo_Web_DarkBG_Shrunk.png"
+               alt="Freedom Electric &amp; Lighting · navy background"
+               style="max-width: 75%; height: auto;" />
+        </div>
+      </div>
+
+      <div class="bb-app" style="margin-top: 28px;">
+        <div class="bb-voice-card bb-voice-card--do">
+          <h3>Logo do's</h3>
+          <ul>
+            <li>Keep generous padding around the lockup — at least the height of the FE emblem.</li>
+            <li>Use the dark-background lockup on photography and dark hero sections.</li>
+            <li>Use the light-background lockup on white or cream surfaces.</li>
+            <li>Pair the emblem alone for square avatars (Facebook, Google profile).</li>
+          </ul>
+        </div>
+        <div class="bb-voice-card bb-voice-card--dont">
+          <h3>Logo don'ts</h3>
+          <ul>
+            <li>Don't stretch, skew, or rotate the lockup.</li>
+            <li>Don't recolor the FE emblem outside the approved palette.</li>
+            <li>Don't place the wordmark on busy photos without a dark overlay.</li>
+            <li>Don't substitute the typeface — Oswald only for the wordmark.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR PALETTE -->
+  <section class="bb-section">
+    <div class="fe-container">
+      <div class="bb-head">
+        <span class="fe-flag-line"></span>
+        <span class="fe-eyebrow fe-eyebrow--light">03 · Color Palette</span>
+        <h2>Patriotic, grounded, high-contrast</h2>
+        <p>The palette is anchored by Election Black, Flag Red, and Freedom Yellow — Americana through a blue-collar lens. Deep Navy and Steel Gray support; Cream White provides breathing room.</p>
+      </div>
+
+      <h3 style="font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fe-steel); margin-bottom: 14px;">Primary</h3>
+      <div class="bb-palette" style="margin-bottom: 28px;">
+        <div class="bb-swatch">
+          <div class="bb-swatch__chip" style="background: #000000;"></div>
+          <div class="bb-swatch__body">
+            <h4 class="bb-swatch__name">Election Black</h4>
+            <div class="bb-swatch__code"><span>HEX</span><span>#000000</span></div>
+            <div class="bb-swatch__code"><span>RGB</span><span>0 0 0</span></div>
+            <p class="bb-swatch__use">Hero backgrounds, footers, dark sections. The brand's base.</p>
+          </div>
+        </div>
+        <div class="bb-swatch">
+          <div class="bb-swatch__chip" style="background: #d42d3e;"></div>
+          <div class="bb-swatch__body">
+            <h4 class="bb-swatch__name">Flag Red</h4>
+            <div class="bb-swatch__code"><span>HEX</span><span>#D42D3E</span></div>
+            <div class="bb-swatch__code"><span>RGB</span><span>212 45 62</span></div>
+            <p class="bb-swatch__use">Primary CTA buttons, accent stripes, headline emphasis.</p>
+          </div>
+        </div>
+        <div class="bb-swatch">
+          <div class="bb-swatch__chip" style="background: #fdfe06;"></div>
+          <div class="bb-swatch__body">
+            <h4 class="bb-swatch__name">Freedom Yellow</h4>
+            <div class="bb-swatch__code"><span>HEX</span><span>#FDFE06</span></div>
+            <div class="bb-swatch__code"><span>RGB</span><span>253 254 6</span></div>
+            <p class="bb-swatch__use">Phone CTA buttons, badges, accent text on dark.</p>
+          </div>
+        </div>
+        <div class="bb-swatch">
+          <div class="bb-swatch__chip" style="background: #f9f8f9; border-bottom: 1px solid var(--fe-border);"></div>
+          <div class="bb-swatch__body">
+            <h4 class="bb-swatch__name">Cream White</h4>
+            <div class="bb-swatch__code"><span>HEX</span><span>#F9F8F9</span></div>
+            <div class="bb-swatch__code"><span>RGB</span><span>249 248 249</span></div>
+            <p class="bb-swatch__use">Page backgrounds, light section fills, type on dark.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fe-steel); margin-bottom: 14px;">Secondary</h3>
+      <div class="bb-palette" style="margin-bottom: 28px;">
+        <div class="bb-swatch">
+          <div class="bb-swatch__chip" style="background: #2b3063;"></div>
+          <div class="bb-swatch__body">
+            <h4 class="bb-swatch__name">Deep Navy</h4>
+            <div class="bb-swatch__code"><span>HEX</span><span>#2B3063</span></div>
+            <div class="bb-swatch__code"><span>RGB</span><span>43 48 99</span></div>
+            <p class="bb-swatch__use">Trust sections, "Why us" panels, secondary accents.</p>
+          </div>
+        </div>
+        <div class="bb-swatch">
+          <div class="bb-swatch__chip" style="background: #97212d;"></div>
+          <div class="bb-swatch__body">
+            <h4 class="bb-swatch__name">Dark Red</h4>
+            <div class="bb-swatch__code"><span>HEX</span><span>#97212D</span></div>
+            <div class="bb-swatch__code"><span>RGB</span><span>151 33 45</span></div>
+            <p class="bb-swatch__use">Button hover state, gradient pair with Flag Red.</p>
+          </div>
+        </div>
+        <div class="bb-swatch">
+          <div class="bb-swatch__chip" style="background: #2b2a2a;"></div>
+          <div class="bb-swatch__body">
+            <h4 class="bb-swatch__name">Near Black</h4>
+            <div class="bb-swatch__code"><span>HEX</span><span>#2B2A2A</span></div>
+            <div class="bb-swatch__code"><span>RGB</span><span>43 42 42</span></div>
+            <p class="bb-swatch__use">Body text on light, secondary dark sections.</p>
+          </div>
+        </div>
+        <div class="bb-swatch">
+          <div class="bb-swatch__chip" style="background: #59555a;"></div>
+          <div class="bb-swatch__body">
+            <h4 class="bb-swatch__name">Steel Gray</h4>
+            <div class="bb-swatch__code"><span>HEX</span><span>#59555A</span></div>
+            <div class="bb-swatch__code"><span>RGB</span><span>89 85 90</span></div>
+            <p class="bb-swatch__use">Subheads, helper text, meta labels.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fe-steel); margin-bottom: 14px;">Usage Pairings</h3>
+      <div class="bb-app">
+        <div class="bb-comp">
+          <h4>Approved combos</h4>
+          <div class="bb-comp__stack">
+            <div style="background: #000; color: #fdfe06; padding: 14px 22px; font-family: var(--fe-display); font-weight: 700; border-radius: 6px; letter-spacing: 0.04em;">BLACK + FREEDOM YELLOW</div>
+            <div style="background: #d42d3e; color: #fff; padding: 14px 22px; font-family: var(--fe-display); font-weight: 700; border-radius: 6px; letter-spacing: 0.04em;">FLAG RED + WHITE</div>
+            <div style="background: #2b3063; color: #fdfe06; padding: 14px 22px; font-family: var(--fe-display); font-weight: 700; border-radius: 6px; letter-spacing: 0.04em;">DEEP NAVY + FREEDOM YELLOW</div>
+            <div style="background: #f9f8f9; color: #d42d3e; padding: 14px 22px; font-family: var(--fe-display); font-weight: 700; border-radius: 6px; letter-spacing: 0.04em; border: 1px solid var(--fe-border);">CREAM + FLAG RED</div>
+          </div>
+        </div>
+        <div class="bb-comp">
+          <h4>Avoid</h4>
+          <div class="bb-comp__stack">
+            <div style="background: #fdfe06; color: #fff; padding: 14px 22px; font-family: var(--fe-display); font-weight: 700; border-radius: 6px; letter-spacing: 0.04em; opacity: 0.7;">Yellow on white (no contrast)</div>
+            <div style="background: #2b3063; color: #97212d; padding: 14px 22px; font-family: var(--fe-display); font-weight: 700; border-radius: 6px; letter-spacing: 0.04em; opacity: 0.7;">Navy + dark red (muddy)</div>
+            <div style="background: linear-gradient(90deg, #d42d3e, #fdfe06, #2b3063); color: #fff; padding: 14px 22px; font-family: var(--fe-display); font-weight: 700; border-radius: 6px; letter-spacing: 0.04em;">Rainbow gradients (cheap)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section class="bb-section bb-section--alt">
+    <div class="fe-container">
+      <div class="bb-head">
+        <span class="fe-flag-line"></span>
+        <span class="fe-eyebrow fe-eyebrow--light">04 · Typography</span>
+        <h2>Industrial display + clean body</h2>
+        <p>Oswald carries the headlines — narrow, condensed, all-caps gives the brand its blue-collar, workwear edge. Inter handles body, UI, and small text — neutral, professional, easy to read on a job-site phone.</p>
+      </div>
+
+      <div class="bb-fonts-grid">
+        <div class="bb-font-card">
+          <div class="bb-font-card__role">Display · Headlines</div>
+          <h3 class="bb-font-card__name">Oswald</h3>
+          <div class="bb-font-card__sample bb-font-card__sample--oswald">Aa</div>
+          <p style="font-family: var(--fe-display); font-size: 22px; line-height: 1.15; text-transform: uppercase; letter-spacing: 0.02em; margin: 12px 0;">
+            DONE RIGHT THE FIRST TIME.
+          </p>
+          <div class="bb-font-card__weights">
+            <span>500 Medium</span>
+            <span>600 Semibold</span>
+            <span>700 Bold</span>
+          </div>
+          <p style="font-size: 13px; color: var(--fe-steel); margin-top: 14px;">Google Fonts · <code>--fe-display</code></p>
+        </div>
+        <div class="bb-font-card">
+          <div class="bb-font-card__role">Body · UI · Forms</div>
+          <h3 class="bb-font-card__name" style="font-family: var(--fe-body);">Inter</h3>
+          <div class="bb-font-card__sample bb-font-card__sample--inter">Aa</div>
+          <p style="font-family: var(--fe-body); font-size: 17px; line-height: 1.5; margin: 12px 0;">
+            Joe will call or text you back same business day. No pressure. No upsells. Just a real licensed Master Electrician giving you a straight answer.
+          </p>
+          <div class="bb-font-card__weights">
+            <span>400 Regular</span>
+            <span>500 Medium</span>
+            <span>600 Semibold</span>
+            <span>700 Bold</span>
+          </div>
+          <p style="font-size: 13px; color: var(--fe-steel); margin-top: 14px;">Google Fonts · <code>--fe-body</code></p>
+        </div>
+      </div>
+
+      <div class="bb-comp" style="background: #fff;">
+        <h4>Type scale</h4>
+        <div class="bb-type-row">
+          <div class="bb-type-row__meta">
+            <strong>H1</strong>
+            Oswald 700 · 60/64 · UPPERCASE<br/>
+            <code>clamp(36px, 5.4vw, 60px)</code>
+          </div>
+          <div class="bb-type-row__sample is-display" style="font-size: 56px;">Done Right The First Time</div>
+        </div>
+        <div class="bb-type-row">
+          <div class="bb-type-row__meta">
+            <strong>H2</strong>
+            Oswald 700 · 44/48 · UPPERCASE<br/>
+            <code>clamp(28px, 3.8vw, 44px)</code>
+          </div>
+          <div class="bb-type-row__sample is-display" style="font-size: 40px;">Your Panel Is Trying To Tell You Something</div>
+        </div>
+        <div class="bb-type-row">
+          <div class="bb-type-row__meta">
+            <strong>H3</strong>
+            Oswald 700 · 26/30 · UPPERCASE<br/>
+            <code>clamp(20px, 2.4vw, 26px)</code>
+          </div>
+          <div class="bb-type-row__sample is-display" style="font-size: 24px;">Free On-Site Estimate</div>
+        </div>
+        <div class="bb-type-row">
+          <div class="bb-type-row__meta">
+            <strong>Eyebrow</strong>
+            Oswald 600 · 13 · UPPERCASE · 0.22em tracking<br/>
+            <code>letter-spacing: 0.22em</code>
+          </div>
+          <div class="bb-type-row__sample" style="font-family: var(--fe-display); font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fe-red);">Colorado Springs Electrician</div>
+        </div>
+        <div class="bb-type-row">
+          <div class="bb-type-row__meta">
+            <strong>Body Lead</strong>
+            Inter 400 · 19/30<br/>
+            <code>font-size: 19px</code>
+          </div>
+          <div class="bb-type-row__sample is-body" style="font-size: 19px; line-height: 1.55;">Same-day estimates. Flat-rate quotes locked in writing. Code-compliant work from a licensed Master Electrician.</div>
+        </div>
+        <div class="bb-type-row">
+          <div class="bb-type-row__meta">
+            <strong>Body</strong>
+            Inter 400 · 17/26<br/>
+            <code>font-size: 17px</code>
+          </div>
+          <div class="bb-type-row__sample is-body" style="font-size: 17px;">Joe Wolff is a licensed master electrician serving Colorado Springs, Fountain, Manitou Springs, and the Front Range.</div>
+        </div>
+        <div class="bb-type-row">
+          <div class="bb-type-row__meta">
+            <strong>Caption</strong>
+            Inter 600 · 12 · UPPERCASE · 0.1em tracking<br/>
+            <code>color: var(--fe-steel)</code>
+          </div>
+          <div class="bb-type-row__sample is-body" style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fe-steel);">Master License ME.3000991 · Fully Insured</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICE & TONE -->
+  <section class="bb-section">
+    <div class="fe-container">
+      <div class="bb-head">
+        <span class="fe-flag-line"></span>
+        <span class="fe-eyebrow fe-eyebrow--light">05 · Voice &amp; Tone</span>
+        <h2>Confident. Local. Direct.</h2>
+        <p>Write like Joe is standing in your kitchen — not like a corporate brand. Short sentences. Real words. No hype. The reader should feel like they're hiring a real person who shows up and does the job right.</p>
+      </div>
+
+      <div class="bb-voice">
+        <div class="bb-voice-card bb-voice-card--do">
+          <h3>Do this</h3>
+          <ul>
+            <li>Write in plain English a homeowner uses out loud.</li>
+            <li>Lead with what the visitor gets — safety, peace of mind, a flat-rate quote.</li>
+            <li>Use proof in the headline: license, jobs completed, "same-day."</li>
+            <li>Speak to fear honestly: flickering lights, warm outlets, sparking.</li>
+            <li>Close with a clear next step: call, text, or get a quote.</li>
+            <li>Reference Colorado Springs and the Front Range often.</li>
+          </ul>
+        </div>
+        <div class="bb-voice-card bb-voice-card--dont">
+          <h3>Not this</h3>
+          <ul>
+            <li>"Synergize", "leverage", "best-in-class", or any corporate filler.</li>
+            <li>Generic "quality work, fair prices" without proof points behind it.</li>
+            <li>Long, run-on sentences that feel like a brochure.</li>
+            <li>Hype, exclamation marks, or fake urgency ("ACT NOW!!!").</li>
+            <li>Talking about ourselves before talking about the visitor.</li>
+            <li>Vague claims ("trusted nationwide") that don't fit a local brand.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fe-steel); margin: 36px 0 6px;">Brand phrases</h3>
+      <p style="color: var(--fe-steel); margin-bottom: 14px;">These should appear repeatedly across ads, landing pages, and printed material.</p>
+      <div class="bb-phrases">
+        <span class="bb-phrase">The People's Electrician</span>
+        <span class="bb-phrase bb-phrase--red">Done right the first time</span>
+        <span class="bb-phrase">Local · Ethical · Economical · Professional</span>
+        <span class="bb-phrase bb-phrase--white">Same-day estimates</span>
+        <span class="bb-phrase">Flat-rate quotes</span>
+        <span class="bb-phrase bb-phrase--red">Upfront pricing. No surprises.</span>
+        <span class="bb-phrase">500+ local jobs completed</span>
+        <span class="bb-phrase bb-phrase--white">Master License ME.3000991</span>
+        <span class="bb-phrase">Text Joe Directly</span>
+        <span class="bb-phrase bb-phrase--red">Stands by its word</span>
+      </div>
+
+      <h3 style="font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fe-steel); margin: 36px 0 6px;">Sample headlines</h3>
+      <div class="bb-app">
+        <div class="bb-comp">
+          <h4>Residential</h4>
+          <p style="font-family: var(--fe-display); font-size: 22px; line-height: 1.15; margin: 0 0 8px; text-transform: uppercase;">Trusted Master Electrician for Your Colorado Springs Home</p>
+          <p style="font-size: 14px; color: var(--fe-steel); margin: 0;">From flickering outlets to full panel upgrades — same-day estimates, flat-rate quotes, no surprises.</p>
+        </div>
+        <div class="bb-comp">
+          <h4>Panel upgrade</h4>
+          <p style="font-family: var(--fe-display); font-size: 22px; line-height: 1.15; margin: 0 0 8px; text-transform: uppercase;">Upgrade Your Electrical Panel Before Your Home Outgrows It</p>
+          <p style="font-size: 14px; color: var(--fe-steel); margin: 0;">If your panel is older than your kids, your home is asking for more power than it was built for.</p>
+        </div>
+        <div class="bb-comp">
+          <h4>Commercial</h4>
+          <p style="font-family: var(--fe-display); font-size: 22px; line-height: 1.15; margin: 0 0 8px; text-transform: uppercase;">Commercial Electrical Work That Keeps Your Doors Open</p>
+          <p style="font-size: 14px; color: var(--fe-steel); margin: 0;">On time. On budget. Code-compliant. We work around your schedule so your business never stops.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section class="bb-section bb-section--alt">
+    <div class="fe-container">
+      <div class="bb-head">
+        <span class="fe-flag-line"></span>
+        <span class="fe-eyebrow fe-eyebrow--light">06 · Components</span>
+        <h2>UI building blocks</h2>
+        <p>Reusable parts that should appear identically across the site, ads, and printed material.</p>
+      </div>
+
+      <div class="bb-comps">
+        <div class="bb-comp">
+          <h4>Buttons · Primary</h4>
+          <div class="bb-comp__stack">
+            <a class="fe-btn fe-btn--primary" href="#">Get My Free Estimate</a>
+            <a class="fe-btn fe-btn--primary fe-btn--lg" href="#">Call (719) 437-7802</a>
+          </div>
+        </div>
+        <div class="bb-comp">
+          <h4>Buttons · Yellow Phone</h4>
+          <div class="bb-comp__stack">
+            <a class="fe-btn fe-btn--yellow" href="#">Call Now</a>
+            <a class="fe-btn fe-btn--yellow fe-btn--lg" href="#">Call (719) 437-7802</a>
+          </div>
+        </div>
+        <div class="bb-comp bb-comp--dark">
+          <h4>Buttons · Outline</h4>
+          <div class="bb-comp__stack">
+            <a class="fe-btn fe-btn--outline" href="#">Text Joe Directly</a>
+            <a class="fe-btn fe-btn--outline fe-btn--lg" href="#">Text Joe Directly</a>
+          </div>
+        </div>
+        <div class="bb-comp">
+          <h4>Trust badges</h4>
+          <div class="bb-comp__stack">
+            <span style="display:inline-flex; align-items:center; gap:8px; font-family: var(--fe-display); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fe-black);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#d42d3e"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19l12-12-1.41-1.41z"/></svg>
+              Licensed Master Electrician
+            </span>
+            <span style="display:inline-flex; align-items:center; gap:8px; font-family: var(--fe-display); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fe-black);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#d42d3e"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19l12-12-1.41-1.41z"/></svg>
+              Fully Insured
+            </span>
+            <span style="display:inline-flex; align-items:center; gap:8px; font-family: var(--fe-display); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fe-black);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#d42d3e"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19l12-12-1.41-1.41z"/></svg>
+              Same-Day Estimates
+            </span>
+          </div>
+        </div>
+        <div class="bb-comp">
+          <h4>Eyebrow tag</h4>
+          <div class="bb-comp__row">
+            <span class="fe-eyebrow fe-eyebrow--light">Colorado Springs Electrician</span>
+            <span class="fe-eyebrow" style="background: #000; border-color: rgba(253, 254, 6, 0.4); color: var(--fe-yellow);">Master License ME.3000991</span>
+          </div>
+        </div>
+        <div class="bb-comp">
+          <h4>Stat block</h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div style="text-align: center;">
+              <div style="font-family: var(--fe-display); font-size: 32px; font-weight: 700; color: var(--fe-red);">500+</div>
+              <div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fe-steel);">Local Jobs</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-family: var(--fe-display); font-size: 32px; font-weight: 700; color: var(--fe-red);">4.9★</div>
+              <div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fe-steel);">Google Rating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PATTERNS -->
+  <section class="bb-section">
+    <div class="fe-container">
+      <div class="bb-head">
+        <span class="fe-flag-line"></span>
+        <span class="fe-eyebrow fe-eyebrow--light">07 · Patterns &amp; Textures</span>
+        <h2>Patriotic, never costume-y</h2>
+        <p>Subtle Americana — flag stripes, scan-line backgrounds, deep gradient skies. The flag is felt, not screamed.</p>
+      </div>
+      <div class="bb-patterns">
+        <div class="bb-pattern bb-pattern--stripe"><span class="bb-pattern__label">Flag Stripe</span></div>
+        <div class="bb-pattern bb-pattern--hero"><span class="bb-pattern__label">Hero Glow</span></div>
+        <div class="bb-pattern bb-pattern--flag-line"><span class="fe-flag-line" style="width: 120px; height: 6px;"></span><span class="bb-pattern__label" style="color: var(--fe-steel); background: rgba(0,0,0,0.05);">Flag Line</span></div>
+        <div class="bb-pattern bb-pattern--scan"><span class="bb-pattern__label">Scan Lines</span></div>
+        <div class="bb-pattern bb-pattern--yellow"><span class="bb-pattern__label">Yellow Caution</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGERY -->
+  <section class="bb-section bb-section--alt">
+    <div class="fe-container">
+      <div class="bb-head">
+        <span class="fe-flag-line"></span>
+        <span class="fe-eyebrow fe-eyebrow--light">08 · Imagery Direction</span>
+        <h2>Real hands, real homes, real work</h2>
+        <p>Use authentic on-site photography — Joe at a panel, a clean wire pull, a finished EV charger install, a brightly-lit Colorado Springs home at dusk. Avoid stock-photo electricians in costume.</p>
+      </div>
+      <div class="bb-imagery">
+        <div class="bb-imagery__tile bb-img-1"><span>Hands-on, lit warm</span></div>
+        <div class="bb-imagery__tile bb-img-2"><span>Dusk · Colorado homes</span></div>
+        <div class="bb-imagery__tile bb-img-3"><span>Before / after</span></div>
+        <div class="bb-imagery__tile bb-img-4"><span>Panel close-ups</span></div>
+      </div>
+      <p style="font-size: 13px; color: var(--fe-steel); margin-top: 18px;">Treat all hero photography with a subtle dark gradient overlay so type stays readable. Keep skin tones natural — never over-saturated.</p>
+    </div>
+  </section>
+
+  <!-- PROOF POINTS -->
+  <section class="bb-section">
+    <div class="fe-container">
+      <div class="bb-head">
+        <span class="fe-flag-line"></span>
+        <span class="fe-eyebrow fe-eyebrow--light">09 · Proof Points</span>
+        <h2>Earned trust, not borrowed</h2>
+        <p>These are the facts that should anchor every page, ad, and printed asset.</p>
+      </div>
+      <div class="bb-proof">
+        <div class="bb-proof__item"><p class="bb-proof__label">Master License</p><p class="bb-proof__value">ME.3000991</p></div>
+        <div class="bb-proof__item"><p class="bb-proof__label">Local Jobs</p><p class="bb-proof__value">500+ completed</p></div>
+        <div class="bb-proof__item"><p class="bb-proof__label">Google Rating</p><p class="bb-proof__value">4.9 · 57 reviews</p></div>
+        <div class="bb-proof__item"><p class="bb-proof__label">Estimates</p><p class="bb-proof__value">Same-day · Free</p></div>
+        <div class="bb-proof__item"><p class="bb-proof__label">Pricing</p><p class="bb-proof__value">Flat-rate · In writing</p></div>
+        <div class="bb-proof__item"><p class="bb-proof__label">Insurance</p><p class="bb-proof__value">Fully insured</p></div>
+        <div class="bb-proof__item"><p class="bb-proof__label">Code</p><p class="bb-proof__value">NEC + Colorado</p></div>
+        <div class="bb-proof__item"><p class="bb-proof__label">Direct Line</p><p class="bb-proof__value">(719) 437-7802</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATION -->
+  <section class="bb-section bb-section--alt">
+    <div class="fe-container">
+      <div class="bb-head">
+        <span class="fe-flag-line"></span>
+        <span class="fe-eyebrow fe-eyebrow--light">10 · Application</span>
+        <h2>The system in action</h2>
+        <p>Hero card, ad card, and contact block — all built from the same color, type, and component rules.</p>
+      </div>
+
+      <div class="bb-app">
+        <div class="bb-card-demo">
+          <span class="fe-eyebrow">Colorado Springs Electrician</span>
+          <h3>Trusted Master Electrician for Your Colorado Springs Home</h3>
+          <p>Same-day estimates. Flat-rate quotes. Code-compliant work. Master License ME.3000991.</p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a class="fe-btn fe-btn--yellow" href="#">Call (719) 437-7802</a>
+            <a class="fe-btn fe-btn--outline" href="#">Text Joe</a>
+          </div>
+        </div>
+
+        <div style="background: #fff; border-radius: 14px; padding: 30px; border-top: 6px solid var(--fe-red); position: relative;">
+          <div style="position: absolute; top: -6px; left: 0; width: 33%; height: 6px; background: var(--fe-yellow); border-radius: 6px 0 0 0;"></div>
+          <div style="position: absolute; top: -6px; left: 33%; width: 34%; height: 6px; background: #fff;"></div>
+          <span class="fe-eyebrow fe-eyebrow--light">Free Estimate</span>
+          <h3 style="margin: 8px 0 4px; font-size: 24px; color: var(--fe-black);">Get a Free Estimate Today</h3>
+          <p style="color: var(--fe-steel); font-size: 14px; margin-bottom: 18px;">Same-day response. No pressure. No surprise pricing.</p>
+          <div style="display: grid; gap: 10px;">
+            <input type="text" placeholder="Your Name" style="padding: 12px 14px; border-radius: 8px; border: 1.5px solid var(--fe-border); font-size: 16px;" />
+            <input type="tel" placeholder="(719) 555-0123" style="padding: 12px 14px; border-radius: 8px; border: 1.5px solid var(--fe-border); font-size: 16px;" />
+            <a class="fe-btn fe-btn--primary fe-btn--block fe-btn--lg" href="#">Get My Free Estimate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="bb-section bb-section--dark">
+    <div class="fe-container">
+      <div class="bb-head">
+        <span class="fe-flag-line"></span>
+        <span class="fe-eyebrow">11 · Contact &amp; Legal</span>
+        <h2 style="color: #fff;">Where to reach us</h2>
+        <p style="color: #d8d6d8;">Single source of truth for contact info and legal language used in ads, footers, and signage.</p>
+      </div>
+
+      <div class="bb-app">
+        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 28px;">
+          <h4 style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fe-yellow); margin: 0 0 14px;">Contact</h4>
+          <p style="margin: 0 0 8px;"><strong style="color:#fff;">Phone:</strong> <a href="tel:+17194377802" style="color: var(--fe-yellow);">(719) 437-7802</a></p>
+          <p style="margin: 0 0 8px;"><strong style="color:#fff;">Email:</strong> <a href="mailto:freedom.electric2023@gmail.com" style="color: var(--fe-yellow);">freedom.electric2023@gmail.com</a></p>
+          <p style="margin: 0 0 8px;"><strong style="color:#fff;">Web:</strong> <a href="https://freedomelectriclighting.com" style="color: var(--fe-yellow);">freedomelectriclighting.com</a></p>
+          <p style="margin: 0 0 8px;"><strong style="color:#fff;">Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=100091345661413" style="color: var(--fe-yellow);">facebook.com/freedom.electric</a></p>
+          <p style="margin: 16px 0 0; font-size: 13px; color: #b3b1b3;">Legal entity: Freedom Electric &amp; Lighting LLC · Master License ME.3000991 · Fully insured.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 28px;">
+          <h4 style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fe-yellow); margin: 0 0 14px;">Service Areas</h4>
+          <p style="margin: 0; color: #d8d6d8; line-height: 1.8;">Colorado Springs · Fountain · Manitou Springs · Monument · Peyton · Castle Rock · Woodland Park · Security-Widefield · Pueblo · Falcon · Black Forest · Palmer Lake · El Paso County · the Front Range</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="fe-footer">
+    <div class="fe-container">
+      <div class="fe-footer__bottom" style="border: 0; padding-top: 0;">
+        <span>© <span id="yr"></span> Freedom Electric &amp; Lighting LLC. Brand standards v1.0.</span>
+        <span><a href="index.html" style="color: var(--fe-yellow);">← Back to landing page suite</a></span>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+</body>
+</html>
