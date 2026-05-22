@@ -1001,7 +1001,159 @@ p { margin: 0 0 1em; }
 .fe-section--dark .fe-flag-line,
 .fe-section--navy .fe-flag-line { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18); }
 
+/* ==========================================================================
+   Mobile optimization
+   ========================================================================== */
+
+/* Global touch + tap behavior */
+html { -webkit-text-size-adjust: 100%; }
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+a, button, summary, .fe-btn, .fe-service, .fe-faq__q {
+  touch-action: manipulation;
+}
+
+/* Make sticky-header-aware anchor scrolling so #quote isn't hidden */
+[id] { scroll-margin-top: 96px; }
+
+/* iPhone home-indicator safe area for the bottom CTA bar */
+.fe-mobile-bar { padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+
+/* Tablet & below */
+@media (max-width: 900px) {
+  :root { --fe-section-y: 56px; }
+  .fe-section__head { margin-bottom: 36px; }
+  .fe-section__head p { font-size: 17px; }
+  .fe-hero { padding: 36px 0 44px; }
+  .fe-hero__card { padding: 24px 22px; }
+  .fe-final h2 { font-size: 30px; line-height: 1.12; }
+}
+
+/* Phones */
+@media (max-width: 720px) {
+  :root { --fe-section-y: 44px; }
+
+  /* Hide the redundant topbar — header carries the same phone CTA */
+  .fe-topbar { display: none; }
+
+  /* Tighter container gutters */
+  .fe-container { padding: 0 16px; }
+
+  /* Header */
+  .fe-header__inner { padding: 10px 0; gap: 10px; }
+  .fe-header__cta .fe-btn { padding: 12px 16px; font-size: 14px; }
+
+  /* Hero */
+  .fe-hero { padding: 28px 0 36px; }
+  .fe-hero h1 { font-size: 34px; line-height: 1.08; margin-bottom: 14px; }
+  .fe-hero__sub { font-size: 16px; line-height: 1.5; margin-bottom: 22px; }
+  .fe-hero__proof { gap: 8px 14px; margin-bottom: 22px; }
+  .fe-hero__proof li { font-size: 11px; letter-spacing: 0.03em; }
+  .fe-hero__trust { font-size: 12px; gap: 10px; }
+  .fe-hero__card { padding: 20px 18px; }
+
+  /* Eyebrow chip smaller */
+  .fe-eyebrow { font-size: 11px; padding: 5px 10px; margin-bottom: 14px; }
+
+  /* Trust strip */
+  .fe-trust { padding: 28px 0; }
+  .fe-trust__num { font-size: 28px; }
+  .fe-trust__label { font-size: 10px; letter-spacing: 0.12em; }
+  .fe-trust__item { padding: 10px 8px; }
+
+  /* Problem aware */
+  .fe-problem__lead { font-size: 17px; margin-bottom: 28px; }
+  .fe-problem__grid { gap: 10px; }
+  .fe-problem__item { padding: 12px 14px; font-size: 14.5px; }
+  .fe-problem__pivot { font-size: 22px; }
+
+  /* Services */
+  .fe-service { padding: 20px 18px; }
+  .fe-service h3 { font-size: 17px; }
+  .fe-service p { font-size: 14px; }
+
+  /* Steps */
+  .fe-step { padding: 24px 20px 20px; }
+  .fe-step__num { width: 44px; height: 44px; font-size: 22px; top: -18px; }
+  .fe-step h3 { font-size: 20px; }
+
+  /* Why us */
+  .fe-why { gap: 28px; }
+  .fe-why__card { padding: 24px; }
+  .fe-why__card-quote { font-size: 18px; }
+
+  /* FAQ */
+  .fe-faq__q { padding: 16px 44px 16px 18px; font-size: 16px; }
+  .fe-faq__q::after { right: 16px; font-size: 24px; }
+  .fe-faq__a { padding: 0 18px 18px; font-size: 15px; }
+
+  /* Final CTA */
+  .fe-final { padding-top: 44px; padding-bottom: 44px; }
+  .fe-final__sub { font-size: 16px; }
+  .fe-final__inner { gap: 28px; }
+
+  /* Stacked, full-width primary CTAs on phones */
+  .fe-hero__cta,
+  .fe-final__cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .fe-hero__cta .fe-btn,
+  .fe-final__cta .fe-btn { width: 100%; }
+  .fe-btn--lg { padding: 16px 22px; font-size: 16px; }
+
+  /* Forms — larger tap targets, no iOS zoom */
+  .fe-form { gap: 11px; }
+  .fe-form input,
+  .fe-form select,
+  .fe-form textarea {
+    padding: 14px 14px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+  .fe-form label { font-size: 11px; margin-bottom: 5px; }
+  .fe-form__row { gap: 10px; }
+
+  /* Mobile bar — bigger tap area */
+  .fe-mobile-bar { padding: 6px 6px max(6px, env(safe-area-inset-bottom)); gap: 6px; }
+  .fe-mobile-bar a { padding: 12px 4px; font-size: 12px; min-height: 52px; }
+  .fe-mobile-bar a svg { width: 20px; height: 20px; }
+  body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+
+  /* Footer */
+  .fe-footer { padding: 32px 0 20px; }
+  .fe-footer__grid { gap: 24px; margin-bottom: 22px; }
+  .fe-footer__bottom { flex-direction: column; gap: 6px; text-align: center; }
+
+  /* Headings rhythm */
+  h2 { line-height: 1.1; }
+  .fe-section__head { margin-bottom: 28px; }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .fe-hero h1 { font-size: 30px; }
+  .fe-hero__sub { font-size: 15px; }
+  .fe-trust__num { font-size: 24px; }
+  .fe-mobile-bar a { font-size: 11px; }
+  .fe-header__cta .fe-btn span[data-token="phone"] { display: none; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+  .fe-btn:hover, .fe-service:hover, .hub-card:hover { transform: none; }
+}
+
 /* Print */
 @media print {
   .fe-header, .fe-mobile-bar, .fe-footer, .fe-topbar { display: none; }
+  body { padding-bottom: 0; }
 }
