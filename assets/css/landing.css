@@ -162,6 +162,13 @@ p { margin: 0 0 1em; }
   color: var(--fe-black);
 }
 
+.fe-logo__img {
+  display: block;
+  height: 52px;
+  width: auto;
+  max-width: 280px;
+}
+
 .fe-logo__mark {
   width: 44px;
   height: 44px;
@@ -211,6 +218,15 @@ p { margin: 0 0 1em; }
 @media (max-width: 720px) {
   .fe-header__phone-num { display: none; }
   .fe-logo__sub { display: none; }
+  .fe-logo__img { height: 42px; max-width: 200px; }
+}
+
+.fe-footer__logo {
+  display: block;
+  height: 56px;
+  width: auto;
+  max-width: 260px;
+  margin-bottom: 14px;
 }
 
 /* ==========================================================================

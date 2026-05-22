@@ -110,12 +110,14 @@
   // ---------- Views ---------------------------------------------------------
   function renderApp() {
     if (!isAuthed()) { renderLogin(); return; }
+    var globals = (window.FEContent && window.FEContent.loadGlobals()) || {};
+    var logoDark = globals.logo_dark || "https://freedomelectriclighting.com/wp-content/uploads/2026/04/Freedom_Electric_Logo_Web_DarkBG_Shrunk.png";
     document.body.innerHTML =
       '<div class="ad-app">' +
         '<aside class="ad-side">' +
           '<div class="ad-side__brand">' +
-            '<div class="ad-side__mark">FE</div>' +
-            '<div><div class="ad-side__title">Freedom Electric</div><div class="ad-side__sub">Admin</div></div>' +
+            '<img class="ad-side__logo" src="' + logoDark + '" alt="Freedom Electric & Lighting" />' +
+            '<div class="ad-side__sub" style="margin-top:8px;">Admin Dashboard</div>' +
           '</div>' +
           '<ul class="ad-nav" id="adNav">' +
             navItem("dashboard", "Dashboard") +
@@ -736,7 +738,21 @@
         field("Rating", "rating", g.rating) +
         field("Website", "website", g.website) +
       '</div>' +
-      '<button class="ad-btn ad-btn--success" id="saveBiz">Save Business Info</button>' +
+      '</div>' +
+
+      '<div class="ad-card"><h2>Logos</h2>' +
+      '<div class="ad-card__sub">Swap logos without editing code. Paste a URL — landing pages, footer, and admin sidebar will all update on next page load.</div>' +
+      '<div class="ad-grid-2">' +
+        '<div>' +
+          field("Light-background logo URL", "logo_light", g.logo_light, "Used in page headers and on white sections") +
+          (g.logo_light ? '<div style="background:#fff; border:1px solid var(--ad-border); border-radius:8px; padding:14px; display:grid; place-items:center; min-height:80px;"><img src="' + escapeHtml(g.logo_light) + '" alt="Light logo preview" style="max-height:60px; max-width:100%;"/></div>' : '') +
+        '</div>' +
+        '<div>' +
+          field("Dark-background logo URL", "logo_dark", g.logo_dark, "Used in footers, hero sections, admin sidebar") +
+          (g.logo_dark ? '<div style="background:#000; border:1px solid var(--ad-border); border-radius:8px; padding:14px; display:grid; place-items:center; min-height:80px;"><img src="' + escapeHtml(g.logo_dark) + '" alt="Dark logo preview" style="max-height:60px; max-width:100%;"/></div>' : '') +
+        '</div>' +
+      '</div>' +
+      '<button class="ad-btn ad-btn--success" id="saveBiz" style="margin-top: 16px;">Save Business Info &amp; Logos</button>' +
       '</div>';
   }
 

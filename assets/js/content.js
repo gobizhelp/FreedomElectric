@@ -20,13 +20,15 @@
     phone: "(719) 437-7802",
     phone_raw: "+17194377802",
     sms_raw: "+17194377802",
-    email: "info@freedomelectriclighting.com",
+    email: "freedom.electric2023@gmail.com",
     license: "ME.3000991",
     address_city: "Colorado Springs, CO",
     service_areas: "Colorado Springs · Fountain · Manitou Springs · Monument · Peyton · El Paso County · Front Range",
     website: "freedomelectriclighting.com",
     jobs_completed: "500+",
-    rating: "5.0"
+    rating: "4.9",
+    logo_light: "https://freedomelectriclighting.com/wp-content/uploads/2026/03/Freedom_Electric_Logo_Header_Thin.png",
+    logo_dark: "https://freedomelectriclighting.com/wp-content/uploads/2026/04/Freedom_Electric_Logo_Web_DarkBG_Shrunk.png"
   };
 
   function safeJSON(s, f) { try { return JSON.parse(s); } catch (e) { return f; } }
@@ -61,6 +63,13 @@
       var prefix = el.getAttribute("data-href-prefix") || "";
       if (Object.prototype.hasOwnProperty.call(globals, t)) {
         el.setAttribute("href", prefix + globals[t]);
+      }
+    });
+    // <img src> swaps from globals (e.g. logo_light, logo_dark)
+    document.querySelectorAll("img[data-src-token]").forEach(function (el) {
+      var t = el.getAttribute("data-src-token");
+      if (Object.prototype.hasOwnProperty.call(globals, t) && globals[t]) {
+        el.setAttribute("src", globals[t]);
       }
     });
   }
