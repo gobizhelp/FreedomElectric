@@ -150,7 +150,8 @@ p { margin: 0 0 1em; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 0;
+  padding-top: 14px;
+  padding-bottom: 14px;
   gap: 16px;
 }
 
@@ -1042,7 +1043,7 @@ a, button, summary, .fe-btn, .fe-service, .fe-faq__q {
   .fe-container { padding-left: 20px; padding-right: 20px; }
 
   /* Header */
-  .fe-header__inner { padding: 10px 0; gap: 10px; }
+  .fe-header__inner { padding-top: 10px; padding-bottom: 10px; gap: 10px; }
   .fe-header__cta .fe-btn { padding: 12px 16px; font-size: 14px; }
 
   /* Hero */
